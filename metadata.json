@@ -1,0 +1,6 @@
+{
+  "name": "TenderDelta",
+  "description": "AI-powered tender-change intelligence workspace for Indian government and PSU procurement.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
