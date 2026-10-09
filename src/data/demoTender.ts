@@ -262,7 +262,7 @@ export const DEMO_CHANGES: MaterialChange[] = [
     affectedDocuments: ['NIT_089_T04_Original_Tender.pdf', 'Corrigendum_2_Substantive_Amendments.pdf'],
     relevantRoles: ['BID_MANAGER', 'FINANCE', 'LEGAL_COMPLIANCE'],
     verificationStatus: 'CONFIRMED',
-    reviewedBy: 'Finance Lead (P. Sharma)',
+    reviewedBy: 'Finance reviewer',
     reviewedAt: '2026-08-10'
   },
   {
@@ -301,7 +301,7 @@ export const DEMO_CHANGES: MaterialChange[] = [
     affectedDocuments: ['NIT_089_T04_Original_Tender.pdf', 'Corrigendum_2_Substantive_Amendments.pdf'],
     relevantRoles: ['BID_MANAGER', 'OPERATIONS', 'FINANCE'],
     verificationStatus: 'CONFIRMED',
-    reviewedBy: 'Bid Manager (R. Verma)',
+    reviewedBy: 'Bid management reviewer',
     reviewedAt: '2026-08-09'
   },
   {
@@ -1022,7 +1022,7 @@ export const DEMO_TASKS: ActionTask[] = [
     description: 'Corrigendum 2 increased turnover criteria from ₹10 Cr to ₹15 Cr. Obtain updated UDIN certificate from practicing Chartered Accountant.',
     category: 'TURNOVER',
     ownerRole: 'FINANCE',
-    assigneeName: 'P. Sharma (Finance Lead)',
+    assigneeName: 'Finance reviewer',
     dueDate: '2026-08-16',
     priority: 'CRITICAL',
     status: 'COMPLETED',
@@ -1116,7 +1116,7 @@ export const DEMO_TASKS: ActionTask[] = [
     description: 'Ensure new line item Item 2.05 is not left empty in the downloaded CPPP financial BOQ Excel file.',
     category: 'FINANCIAL',
     ownerRole: 'FINANCE',
-    assigneeName: 'P. Sharma (Finance Lead)',
+    assigneeName: 'Finance reviewer',
     dueDate: '2026-08-18',
     priority: 'HIGH',
     status: 'OPEN',
@@ -1138,7 +1138,7 @@ export const DEMO_AUDIT_TRAIL = [
     tenderId: 'tender-demo-001',
     timestamp: '2026-07-28T10:15:00Z',
     action: 'INGESTED_BASELINE_DOCUMENTS',
-    user: 'Bid Lead (R. Verma)',
+    user: 'Bid management reviewer',
     role: 'BID_MANAGER',
     details: 'Ingested baseline NIT_089_T04_Original_Tender.pdf (68 pages, 4.28 MB) as Version 1.0 baseline.',
     category: 'INGESTION' as const
@@ -1148,7 +1148,7 @@ export const DEMO_AUDIT_TRAIL = [
     tenderId: 'tender-demo-001',
     timestamp: '2026-08-03T11:45:00Z',
     action: 'INGESTED_CORRIGENDUM_1',
-    user: 'Bid Lead (R. Verma)',
+    user: 'Bid management reviewer',
     role: 'BID_MANAGER',
     details: 'Ingested Corrigendum_1_Extension_and_EMD.pdf. Detected EMD typo rectification (₹18.50L confirmed).',
     category: 'INGESTION' as const
@@ -1158,7 +1158,7 @@ export const DEMO_AUDIT_TRAIL = [
     tenderId: 'tender-demo-001',
     timestamp: '2026-08-07T16:20:00Z',
     action: 'INGESTED_PREBID_CLARIFICATIONS',
-    user: 'Technical Bid Specialist (A. Nair)',
+    user: 'Technical reviewer',
     role: 'TECHNICAL',
     details: 'Ingested Pre_Bid_Clarifications_Reply_Matrix.pdf (54 queries). Detected RAM revision to 1TB & MII auditor certificate requirement.',
     category: 'INGESTION' as const
@@ -1168,7 +1168,7 @@ export const DEMO_AUDIT_TRAIL = [
     tenderId: 'tender-demo-001',
     timestamp: '2026-08-09T14:10:00Z',
     action: 'INGESTED_CORRIGENDUM_2_AND_BOQ',
-    user: 'Bid Lead (R. Verma)',
+    user: 'Bid management reviewer',
     role: 'BID_MANAGER',
     details: 'Ingested Corrigendum_2_Substantive_Amendments.pdf & Revised_Financial_BOQ_v2.xlsx. Triggered Version Intelligence Delta Analysis.',
     category: 'INGESTION' as const
@@ -1178,7 +1178,7 @@ export const DEMO_AUDIT_TRAIL = [
     tenderId: 'tender-demo-001',
     timestamp: '2026-08-10T09:30:00Z',
     action: 'VERIFIED_CRITICAL_TURNOVER_CHANGE',
-    user: 'Finance Lead (P. Sharma)',
+    user: 'Finance reviewer',
     role: 'FINANCE',
     details: 'Confirmed turnover threshold increase to ₹15 Cr. Assigned fresh CA certificate task with UDIN.',
     category: 'VERIFICATION' as const

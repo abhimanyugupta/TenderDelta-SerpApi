@@ -154,17 +154,7 @@ function extractTextFromPdfBuffer(buffer: ArrayBuffer): { text: string; pages: D
     if (textBlocks.length > 0) {
       fullText = textBlocks.join('\n\n');
     } else {
-      // Fallback: printable ASCII sequence extraction
-      const asciiStrings: string[] = [];
-      const asciiRegex = /[A-Za-z0-9\s.,:;/%()\-–—_₹"'$#@+*?!]{4,}/g;
-      let asciiMatch: RegExpExecArray | null;
-      while ((asciiMatch = asciiRegex.exec(binaryString)) !== null) {
-        const s = asciiMatch[0].trim();
-        if (s.length > 4 && !s.startsWith('/Filter') && !s.startsWith('/Length') && !s.startsWith('/Type')) {
-          asciiStrings.push(s);
-        }
-      }
-      fullText = asciiStrings.join(' ');
+      fullText = '';
     }
 
     // Check if explicit page breaks (form feeds or Page markers) exist
@@ -193,15 +183,15 @@ function extractTextFromPdfBuffer(buffer: ArrayBuffer): { text: string; pages: D
     }
 
     return {
-      text: 'Extracted PDF document text. Grounded procurement terms and technical specifications.',
-      pages: [{ pageNumber: 1, text: 'Tender notice and technical specifications document.', isUncertain: true }],
+      text: '',
+      pages: [],
       isPageCountExact: false
     };
   } catch (err) {
     console.warn('PDF extraction error', err);
     return {
-      text: 'Parsed PDF Tender Document.',
-      pages: [{ pageNumber: 1, text: 'Parsed PDF content.', isUncertain: true }],
+      text: '',
+      pages: [],
       isPageCountExact: false
     };
   }
@@ -292,8 +282,8 @@ function extractFromSpreadsheet(buffer: ArrayBuffer, filename: string): {
   } catch (err) {
     console.warn('Spreadsheet parse error', err);
     return {
-      text: `Spreadsheet ${filename} parsed.`,
-      pages: [{ pageNumber: 1, text: `Schedule of rates for ${filename}`, isUncertain: true }],
+      text: '',
+      pages: [],
       boqRows: [],
       isPageCountExact: false
     };
@@ -344,6 +334,9 @@ export async function parseUploadedFile(file: File): Promise<ExtractedFileResult
   let boqRows: StructuredBOQRow[] | undefined = undefined;
   let isPageCountExact = true;
 
+  if (!/\.(txt|md|csv|xlsx|xls|pdf)$/i.test(filename)) {
+    throw new Error('Unsupported document format. Export Word documents as plain text before uploading.');
+  }
   const arrayBuffer = await file.arrayBuffer();
   const sha256Hash = await calculateSHA256(arrayBuffer);
 
@@ -378,6 +371,10 @@ export async function parseUploadedFile(file: File): Promise<ExtractedFileResult
       }];
       isPageCountExact = false;
     }
+  }
+
+  if (!rawText.trim()) {
+    throw new Error('No usable document text extracted. Compressed/scanned PDFs need a verified text export; no placeholder evidence was created.');
   }
 
   const { type: docType, confidence: classificationConfidence } = detectDocumentType(filename, rawText.substring(0, 3000));

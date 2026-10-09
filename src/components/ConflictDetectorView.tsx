@@ -9,7 +9,7 @@ import {
   FileText,
   AlertOctagon
 } from 'lucide-react';
-import { Tender, ConflictRecord } from '../types';
+import { Tender } from '../types';
 
 interface ConflictDetectorViewProps {
   tender: Tender;
@@ -54,7 +54,15 @@ export const ConflictDetectorView: React.FC<ConflictDetectorViewProps> = ({
       {/* Conflict Cards */}
       <div className="space-y-4">
         {tender.conflicts.map((conflict) => {
+          const { statementA, statementB } = conflict;
           const isResolved = conflict.status === 'RESOLVED_BY_CORRIGENDUM';
+          const clarificationRequested = conflict.status === 'CLARIFICATION_REQUESTED';
+          const pageA = typeof statementA.pageNumber === 'number' && Number.isInteger(statementA.pageNumber) && statementA.pageNumber > 0
+            ? statementA.pageNumber
+            : null;
+          const pageB = typeof statementB.pageNumber === 'number' && Number.isInteger(statementB.pageNumber) && statementB.pageNumber > 0
+            ? statementB.pageNumber
+            : null;
 
           return (
             <div
@@ -77,16 +85,18 @@ export const ConflictDetectorView: React.FC<ConflictDetectorViewProps> = ({
                     <h3 className="text-base font-bold text-stone-900 leading-snug">
                       {conflict.title}
                     </h3>
-                    <span className="text-[10px] font-mono text-stone-500">Requirement Key: {conflict.requirementKey}</span>
+                    <span className="text-[10px] font-mono text-stone-500">Category: {conflict.category}</span>
                   </div>
                 </div>
 
                 <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold font-mono uppercase self-start sm:self-auto ${
-                  isResolved 
-                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' 
-                    : 'bg-amber-100 text-amber-900 border border-amber-300'
+                  isResolved
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                    : clarificationRequested
+                      ? 'bg-blue-50 text-blue-800 border border-blue-200'
+                      : 'bg-amber-100 text-amber-900 border border-amber-300'
                 }`}>
-                  {isResolved ? '✓ Resolved by Corrigendum 1' : '⚠ Active Unresolved Ambiguity'}
+                  {isResolved ? 'Resolved by Corrigendum' : clarificationRequested ? 'Clarification requested' : 'Active unresolved ambiguity'}
                 </span>
               </div>
 
@@ -97,26 +107,24 @@ export const ConflictDetectorView: React.FC<ConflictDetectorViewProps> = ({
                 <div className="bg-stone-50 border border-stone-200 rounded p-3 space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-mono font-bold text-stone-700 border-b border-stone-200 pb-1">
                     <span>Document A (Primary Section)</span>
-                    <span className="text-stone-500">{conflict.docACitation.documentName}</span>
+                    <span className="text-stone-500">{statementA.documentName}</span>
                   </div>
 
                   <p className="font-serif italic text-stone-800 text-[11px] leading-relaxed">
-                    "{conflict.docACitation.exactSnippet}"
+                    "{statementA.text}"
                   </p>
 
                   <div className="flex items-center justify-between pt-1 text-[10px] font-mono text-stone-500">
-                    <span>Page {conflict.docACitation.pageNumber}, {conflict.docACitation.sectionNumber}</span>
-                    <button
-                      onClick={() => onOpenSourceViewer(
-                        conflict.docACitation.documentName,
-                        conflict.docACitation.pageNumber,
-                        conflict.docACitation.exactSnippet
-                      )}
-                      className="text-blue-600 hover:text-blue-800 font-bold flex items-center"
-                    >
-                      <span>View Clause A</span>
-                      <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
-                    </button>
+                    <span>{pageA ? `Page ${pageA}` : 'Page unavailable'}, {statementA.clause}</span>
+                    {pageA && (
+                      <button
+                        onClick={() => onOpenSourceViewer(statementA.documentName, pageA, statementA.text)}
+                        className="text-blue-600 hover:text-blue-800 font-bold flex items-center"
+                      >
+                        <span>View Clause A</span>
+                        <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                      </button>
+                    )}
                   </div>
                 </div>
 
@@ -124,26 +132,24 @@ export const ConflictDetectorView: React.FC<ConflictDetectorViewProps> = ({
                 <div className="bg-stone-50 border border-stone-200 rounded p-3 space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-mono font-bold text-stone-700 border-b border-stone-200 pb-1">
                     <span>Document B (Contradictory Annexure/Query)</span>
-                    <span className="text-stone-500">{conflict.docBCitation.documentName}</span>
+                    <span className="text-stone-500">{statementB.documentName}</span>
                   </div>
 
                   <p className="font-serif italic text-stone-800 text-[11px] leading-relaxed">
-                    "{conflict.docBCitation.exactSnippet}"
+                    "{statementB.text}"
                   </p>
 
                   <div className="flex items-center justify-between pt-1 text-[10px] font-mono text-stone-500">
-                    <span>Page {conflict.docBCitation.pageNumber}, {conflict.docBCitation.sectionNumber}</span>
-                    <button
-                      onClick={() => onOpenSourceViewer(
-                        conflict.docBCitation.documentName,
-                        conflict.docBCitation.pageNumber,
-                        conflict.docBCitation.exactSnippet
-                      )}
-                      className="text-blue-600 hover:text-blue-800 font-bold flex items-center"
-                    >
-                      <span>View Clause B</span>
-                      <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
-                    </button>
+                    <span>{pageB ? `Page ${pageB}` : 'Page unavailable'}, {statementB.clause}</span>
+                    {pageB && (
+                      <button
+                        onClick={() => onOpenSourceViewer(statementB.documentName, pageB, statementB.text)}
+                        className="text-blue-600 hover:text-blue-800 font-bold flex items-center"
+                      >
+                        <span>View Clause B</span>
+                        <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
+                      </button>
+                    )}
                   </div>
                 </div>
 
@@ -155,11 +161,11 @@ export const ConflictDetectorView: React.FC<ConflictDetectorViewProps> = ({
                   Analysis & Recommended Action:
                 </span>
                 <p className="text-stone-800 leading-relaxed text-[11px]">
-                  {conflict.explanation}
+                  {conflict.conflictDescription}
                 </p>
-                {conflict.resolution && (
+                {conflict.suggestedClarificationQuery && (
                   <p className="text-emerald-900 font-semibold font-mono text-[11px] pt-1">
-                    Formal Resolution: {conflict.resolution}
+                    Suggested clarification: {conflict.suggestedClarificationQuery}
                   </p>
                 )}
               </div>

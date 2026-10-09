@@ -33,8 +33,20 @@ export function parseSerpApiDiscoveryResponse(
 ): TenderDiscoveryResponse {
   const rawResults = Array.isArray(payload?.organic_results) ? payload.organic_results : [];
 
+  const seen = new Set<string>();
   const results = rawResults
-    .filter((item) => typeof item?.link === 'string' && /^https?:\/\//i.test(item.link))
+    .filter((item) => {
+      if (typeof item?.link !== 'string') return false;
+      try {
+        const parsed = new URL(item.link);
+        if (!['https:', 'http:'].includes(parsed.protocol) || parsed.username || parsed.password) return false;
+        if (seen.has(parsed.href)) return false;
+        seen.add(parsed.href);
+        return true;
+      } catch {
+        return false;
+      }
+    })
     .map((item, index) => {
       const url = item.link as string;
       let sourceDomain = 'unknown';

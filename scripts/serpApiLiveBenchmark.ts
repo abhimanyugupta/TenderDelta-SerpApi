@@ -60,7 +60,7 @@ async function main(): Promise<void> {
         organicResults,
         httpStatus: response.status,
         officialDomainCandidate,
-        error: data?.error,
+        error: data?.error ? 'Provider returned an error.' : undefined,
       });
     } catch (error: any) {
       rows.push({
@@ -70,7 +70,7 @@ async function main(): Promise<void> {
         organicResults: 0,
         httpStatus: 0,
         officialDomainCandidate: false,
-        error: error?.message || String(error),
+        error: 'Request failed; sensitive provider details omitted.',
       });
     }
   }
@@ -105,6 +105,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((error) => {
-  console.error(error);
+  console.error('Live benchmark failed. Check private runtime configuration.');
   process.exit(1);
 });

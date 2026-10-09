@@ -85,7 +85,7 @@ export interface AdversarialBenchmarkReport {
   validCasesCount: number;
   invalidCasesCount: number;
   
-  // Primary Trust Metrics
+  // Case-set metrics
   falseAcceptCount: number;
   falseAcceptRate: number; // FAR = falseAcceptCount / invalidCasesCount (Target = 0.00%)
   falseRejectCount: number;
@@ -955,7 +955,7 @@ export async function runCliBenchmarkReport(): Promise<AdversarialBenchmarkRepor
   console.log(`Executed At: ${report.executedAt}`);
   console.log(`Total Cases: ${report.totalCases} | Valid Baselines: ${report.validCasesCount} | Adversarial / Invalid: ${report.invalidCasesCount}`);
   console.log('-'.repeat(80));
-  console.log('PRIMARY TRUST METRICS:');
+  console.log('CASE-SET METRICS:');
   console.log(`  False Accept Rate (FAR): ${report.falseAcceptRate.toFixed(2)}% (${report.falseAcceptCount}/${report.invalidCasesCount}) [Target: 0.00%]`);
   console.log(`  False Reject Rate (FRR): ${report.falseRejectRate.toFixed(2)}% (${report.falseRejectCount}/${report.validCasesCount}) [Target: 0.00%]`);
   console.log(`  Valid Accept Rate:       ${report.validAcceptRate.toFixed(2)}% (${report.validAcceptCount}/${report.validCasesCount}) [Target: 100.0%]`);
@@ -980,8 +980,8 @@ export async function runCliBenchmarkReport(): Promise<AdversarialBenchmarkRepor
     console.log(`  [${statusMark}] ${r.id.padEnd(34)} Oracle: ${r.oracleStatus.padEnd(20)} Actual: ${String(r.actualStatus).padEnd(20)}${flag}`);
   });
   console.log('='.repeat(80));
-  console.log(`OVERALL BENCHMARK OUTCOME: ${report.allPassed ? 'ALL 20 BENCHMARK CASES PASSED (100% FAIL-CLOSED FIDELITY)' : 'BENCHMARK SUITE FAILED'}`);
-  console.log(`KILLER CASES STATUS:     ${report.allKillerCasesPassed ? 'ALL KILLER CASES PASSED' : 'KILLER CASES FAILED'}`);
+  console.log(`FIXTURE RESULT: ${report.allPassed ? 'All 20 fixture expectations matched' : 'One or more fixture expectations failed'}`);
+  console.log(`NAMED KILLER FIXTURES: ${report.allKillerCasesPassed ? 'All expected outcomes matched' : 'One or more failures detected'}`);
   console.log('='.repeat(80));
 
   // Persist machine-readable test artifact in Node runtime

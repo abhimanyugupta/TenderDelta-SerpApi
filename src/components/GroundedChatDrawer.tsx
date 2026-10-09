@@ -72,7 +72,7 @@ export const GroundedChatDrawer: React.FC<GroundedChatDrawerProps> = ({
       id: 'welcome-1',
       sender: 'assistant',
       text: tender 
-        ? `Hello! I am your Grounded Procurement Intelligence Assistant for "${tender.title}". I am strictly anchored to the 5 ingested documents and corrigenda. Ask me about eligibility changes, deadline shifts, BOQ items, or compliance clauses.`
+        ? `Ask about "${tender.title}" using its ${tender.documents.length} uploaded documents. Review answers against their source quotations; AI interpretations require human review.`
         : 'Hello! Please select or analyze a tender to query its version history and requirement changes.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
@@ -126,6 +126,7 @@ export const GroundedChatDrawer: React.FC<GroundedChatDrawerProps> = ({
       });
 
       const data = await response.json();
+      if (!response.ok) throw new Error('Tender answer endpoint unavailable.');
       const isNotFound = data.insufficientEvidence || 
                          data.verificationStatus === 'INSUFFICIENT_EVIDENCE' || 
                          (data.answer || '').toUpperCase().includes('NOT FOUND IN PROVIDED DOCUMENTS');
@@ -150,17 +151,12 @@ export const GroundedChatDrawer: React.FC<GroundedChatDrawerProps> = ({
       const fallbackMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         sender: 'assistant',
-        text: 'The Annual Turnover requirement was raised by 50% from ₹10 Cr to ₹15 Cr in Corrigendum 2. Submission deadline extended to 19-Aug-2026.',
+        text: 'The answer service is unavailable. No verified answer was produced. Inspect the uploaded source documents and try again.',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        citations: [{
-          documentName: 'Corrigendum_2_Substantive_Amendments.pdf',
-          pageNumber: 2,
-          sectionNumber: 'Clause C2.2',
-          exactSnippet: 'Average Annual Financial Turnover of at least INR 15.00 Crores in lieu of earlier INR 10.00 Crores.',
-          verificationStatus: 'VERIFIED',
-          isVerifiedAgainstSource: true
-        }],
-        groundedInTender: true
+        citations: [],
+        verificationStatus: 'UNVERIFIED',
+        insufficientEvidence: true,
+        groundedInTender: false
       };
       setMessages(prev => [...prev, fallbackMsg]);
     } finally {

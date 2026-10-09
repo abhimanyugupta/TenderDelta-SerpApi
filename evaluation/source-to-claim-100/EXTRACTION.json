@@ -1,0 +1,2796 @@
+{
+  "audit_version": "1.0.0",
+  "dataset_version": "1.0.0",
+  "dataset_sha256": "462b64a4f0185dc31b37fc66cffb41e0d38b4e016befef5c713622a2bd8b13c8",
+  "baseline_commit": "709504c514be1628e890697c175a0397d13bccf6",
+  "clock_utc": "2026-10-09T06:30:00.000Z",
+  "cases": 100,
+  "architecture": "Unchanged runLocalGroundedAnalysis actual output audit; gold enters scoring only after extraction.",
+  "metrics": {
+    "emitted_output_counts": {
+      "CORRECT": 18,
+      "WRONG": 1,
+      "UNSCORABLE": 4
+    },
+    "emitted_value_accuracy": {
+      "numerator": 18,
+      "denominator": 19,
+      "rate": 0.9473684210526315
+    },
+    "emitted_source_grounding_accuracy": {
+      "numerator": 22,
+      "denominator": 23,
+      "rate": 0.9565217391304348
+    },
+    "cosmetic_span_boundary_padding": 9,
+    "supported_surface_extraction_coverage": {
+      "numerator": 19,
+      "denominator": 39,
+      "rate": 0.48717948717948717
+    },
+    "supported_surface_grounded_correct_coverage": {
+      "numerator": 18,
+      "denominator": 39,
+      "rate": 0.46153846153846156
+    },
+    "all_explicit_gold_field_extraction_coverage": {
+      "numerator": 19,
+      "denominator": 71,
+      "rate": 0.2676056338028169
+    },
+    "draft_ingestion_time_deadline_placeholders": 100,
+    "unsafe_unresolved_conflict_emissions": 2
+  },
+  "unsafe_conflict_examples": [
+    {
+      "case_id": "C02",
+      "field": "emd",
+      "value": 50000,
+      "document_id": "C02-notice",
+      "classification": "UNSAFE_UNRESOLVED_CONFLICT",
+      "threat_severity": "S5"
+    },
+    {
+      "case_id": "C06",
+      "field": "turnover",
+      "value": 3000000,
+      "document_id": "C06-notice",
+      "classification": "UNSAFE_UNRESOLVED_CONFLICT",
+      "threat_severity": "S3"
+    }
+  ],
+  "by_field": {
+    "deadline": {
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 18,
+      "target_emitted": 0,
+      "target_correct": 0
+    },
+    "emd": {
+      "emitted_output_counts": {
+        "CORRECT": 16,
+        "WRONG": 0,
+        "UNSCORABLE": 2
+      },
+      "explicit_gold_cases": 17,
+      "target_emitted": 16,
+      "target_correct": 16
+    },
+    "turnover": {
+      "emitted_output_counts": {
+        "CORRECT": 2,
+        "WRONG": 1,
+        "UNSCORABLE": 2
+      },
+      "explicit_gold_cases": 4,
+      "target_emitted": 3,
+      "target_correct": 2
+    }
+  },
+  "by_category": {
+    "A": {
+      "cases": 10,
+      "emitted_output_counts": {
+        "CORRECT": 3,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 10,
+      "target_emitted": 3,
+      "target_correct": 3
+    },
+    "B": {
+      "cases": 10,
+      "emitted_output_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "explicit_gold_cases": 4,
+      "target_emitted": 1,
+      "target_correct": 1
+    },
+    "C": {
+      "cases": 10,
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 2
+      },
+      "explicit_gold_cases": 5,
+      "target_emitted": 0,
+      "target_correct": 0
+    },
+    "D": {
+      "cases": 10,
+      "emitted_output_counts": {
+        "CORRECT": 2,
+        "WRONG": 1,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 10,
+      "target_emitted": 3,
+      "target_correct": 2
+    },
+    "E": {
+      "cases": 8,
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 6,
+      "target_emitted": 0,
+      "target_correct": 0
+    },
+    "F": {
+      "cases": 8,
+      "emitted_output_counts": {
+        "CORRECT": 3,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 7,
+      "target_emitted": 3,
+      "target_correct": 3
+    },
+    "G": {
+      "cases": 8,
+      "emitted_output_counts": {
+        "CORRECT": 3,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "explicit_gold_cases": 8,
+      "target_emitted": 3,
+      "target_correct": 3
+    },
+    "H": {
+      "cases": 8,
+      "emitted_output_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 1,
+      "target_emitted": 1,
+      "target_correct": 1
+    },
+    "I": {
+      "cases": 8,
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 3,
+      "target_emitted": 0,
+      "target_correct": 0
+    },
+    "J": {
+      "cases": 6,
+      "emitted_output_counts": {
+        "CORRECT": 3,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 5,
+      "target_emitted": 3,
+      "target_correct": 3
+    },
+    "K": {
+      "cases": 6,
+      "emitted_output_counts": {
+        "CORRECT": 2,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 6,
+      "target_emitted": 2,
+      "target_correct": 2
+    },
+    "L": {
+      "cases": 6,
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 5,
+      "target_emitted": 0,
+      "target_correct": 0
+    },
+    "R": {
+      "cases": 2,
+      "emitted_output_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "explicit_gold_cases": 1,
+      "target_emitted": 0,
+      "target_correct": 0
+    }
+  },
+  "limitations": [
+    "Scores actual structured requirements/deadlines, not validator acceptance or arbitrary Q&A answers.",
+    "Only deadline, EMD and turnover have direct target mappings in the current text extractor. Other gold fields affect full-corpus coverage but are outside its implemented surface.",
+    "Unscorable emissions have no explicit gold for that field and are excluded from value accuracy; their physical source identity is still audited.",
+    "Unscorable value outputs can still be unsafe: emissions from adjudicated CONFLICTED cases are separately counted as unsafe unresolved conflicts. Value precision and source-span presence must not be interpreted as safe extraction accuracy.",
+    "Source authority, tender identities and extracted_ok are fixture metadata assumptions; ingestion cannot express the original discovery/authority hierarchy.",
+    "ID-derived unique filenames provide unambiguous citation document mapping. Generated runtime tender IDs are not compared with procurement tender IDs.",
+    "No PDF parsing, OCR execution, network, model inference or live source authentication is exercised.",
+    "Changes/tasks repeat extracted values and are counted diagnostically, not as independent facts. Risk scores and generated IDs are not correctness metrics.",
+    "Missing extraction is a coverage failure, not a wrong-value emission. Draft ingestion-time deadlines are reported separately and must not be interpreted as supported deadline facts.",
+    "Gold-source membership and source-span presence after boundary whitespace trimming are necessary checks; this audit does not establish full citation completeness or general semantic entailment.",
+    "Source grounding requires a known authoritative matching-tender document, source-span presence, and gold-source membership when the target field has an adjudicated gold value. Boundary-only whitespace padding is counted as cosmetic."
+  ],
+  "case_results": [
+    {
+      "case_id": "A01",
+      "category": "A",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "A01-notice",
+          "quote": "EMD: INR 50,000.\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A02",
+      "category": "A",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A03",
+      "category": "A",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A04",
+      "category": "A",
+      "gold_field": "delivery_days",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A05",
+      "category": "A",
+      "gold_field": "unit_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A06",
+      "category": "A",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A07",
+      "category": "A",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A08",
+      "category": "A",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 75,000.",
+          "normalized_value": 75000,
+          "currency": "INR",
+          "document_id": "A08-notice",
+          "quote": "EMD: INR 75,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A09",
+      "category": "A",
+      "gold_field": "turnover",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "turnover",
+          "channel": "requirements",
+          "raw_value": "INR 20 lakh",
+          "normalized_value": 2000000,
+          "currency": "INR",
+          "document_id": "A09-notice",
+          "quote": "Turnover: INR 20 lakh",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "A10",
+      "category": "A",
+      "gold_field": "gst_included",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B01",
+      "category": "B",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "B01-notice",
+          "quote": "EMD: INR 50,000.",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B02",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B03",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [
+        {
+          "field": "turnover",
+          "channel": "requirements",
+          "raw_value": "INR 10 lakh",
+          "normalized_value": 1000000,
+          "currency": "INR",
+          "document_id": "B03-notice",
+          "quote": "Turnover: INR 10 lakh",
+          "value_status": "UNSCORABLE",
+          "source_status": "CORRECT",
+          "status": "UNSCORABLE",
+          "reasons": [
+            "No independently adjudicated explicit gold value for this emitted field; excluded from value accuracy."
+          ]
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B04",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B05",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B06",
+      "category": "B",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B07",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B08",
+      "category": "B",
+      "gold_field": "organization",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B09",
+      "category": "B",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "B10",
+      "category": "B",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C01",
+      "category": "C",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C02",
+      "category": "C",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "C02-notice",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "UNSCORABLE",
+          "source_status": "CORRECT",
+          "status": "UNSCORABLE",
+          "reasons": [
+            "No independently adjudicated explicit gold value for this emitted field; excluded from value accuracy."
+          ],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C03",
+      "category": "C",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C04",
+      "category": "C",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C05",
+      "category": "C",
+      "gold_field": "delivery_days",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C06",
+      "category": "C",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [
+        {
+          "field": "turnover",
+          "channel": "requirements",
+          "raw_value": "INR 30 lakh",
+          "normalized_value": 3000000,
+          "currency": "INR",
+          "document_id": "C06-notice",
+          "quote": "Turnover: INR 30 lakh",
+          "value_status": "UNSCORABLE",
+          "source_status": "CORRECT",
+          "status": "UNSCORABLE",
+          "reasons": [
+            "No independently adjudicated explicit gold value for this emitted field; excluded from value accuracy."
+          ]
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C07",
+      "category": "C",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C08",
+      "category": "C",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C09",
+      "category": "C",
+      "gold_field": "unit_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "C10",
+      "category": "C",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D01",
+      "category": "D",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D02",
+      "category": "D",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "D02-notice",
+          "quote": "EMD: INR 50,000.\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D03",
+      "category": "D",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D04",
+      "category": "D",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D05",
+      "category": "D",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D06",
+      "category": "D",
+      "gold_field": "unit_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D07",
+      "category": "D",
+      "gold_field": "delivery_days",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D08",
+      "category": "D",
+      "gold_field": "turnover",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": false,
+      "outputs": [
+        {
+          "field": "turnover",
+          "channel": "requirements",
+          "raw_value": "INR 10 lakh",
+          "normalized_value": 1000000,
+          "currency": "INR",
+          "document_id": "D08-notice",
+          "quote": "Turnover: INR 10 lakh",
+          "value_status": "WRONG",
+          "source_status": "WRONG",
+          "status": "WRONG",
+          "reasons": [
+            "Source is not a gold supporting document for this field.",
+            "Actual emitted field value/currency differs from explicit authoritative gold."
+          ]
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 1,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D09",
+      "category": "D",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "D10",
+      "category": "D",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 25,000.",
+          "normalized_value": 25000,
+          "currency": "INR",
+          "document_id": "D10-notice",
+          "quote": "EMD: INR 25,000.\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E01",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E02",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E03",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E04",
+      "category": "E",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E05",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E06",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E07",
+      "category": "E",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "E08",
+      "category": "E",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F01",
+      "category": "F",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "f1",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F02",
+      "category": "F",
+      "gold_field": "turnover",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "turnover",
+          "channel": "requirements",
+          "raw_value": "INR 1.25 crore",
+          "normalized_value": 12500000,
+          "currency": "INR",
+          "document_id": "f2",
+          "quote": "Turnover: INR 1.25 crore",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F03",
+      "category": "F",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 2.5 lakh",
+          "normalized_value": 250000,
+          "currency": "INR",
+          "document_id": "f3",
+          "quote": "EMD: INR 2.5 lakh",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F04",
+      "category": "F",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F05",
+      "category": "F",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F06",
+      "category": "F",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F07",
+      "category": "F",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "F08",
+      "category": "F",
+      "gold_field": "gst_included",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G01",
+      "category": "G",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "g1",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G02",
+      "category": "G",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G03",
+      "category": "G",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "g3",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G04",
+      "category": "G",
+      "gold_field": "organization",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G05",
+      "category": "G",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 30,000.",
+          "normalized_value": 30000,
+          "currency": "INR",
+          "document_id": "g5",
+          "quote": "EMD: INR 30,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G06",
+      "category": "G",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G07",
+      "category": "G",
+      "gold_field": "organization",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "g7",
+          "quote": "EMD: INR 50,000.",
+          "value_status": "UNSCORABLE",
+          "source_status": "CORRECT",
+          "status": "UNSCORABLE",
+          "reasons": [
+            "No independently adjudicated explicit gold value for this emitted field; excluded from value accuracy."
+          ]
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 1
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "G08",
+      "category": "G",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H01",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H02",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H03",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H04",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H05",
+      "category": "H",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 0.",
+          "normalized_value": 0,
+          "currency": "INR",
+          "document_id": "h5",
+          "quote": "EMD: INR 0. ",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H06",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H07",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "H08",
+      "category": "H",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I01",
+      "category": "I",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I02",
+      "category": "I",
+      "gold_field": "unit_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I03",
+      "category": "I",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I04",
+      "category": "I",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I05",
+      "category": "I",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I06",
+      "category": "I",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I07",
+      "category": "I",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "I08",
+      "category": "I",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J01",
+      "category": "J",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "j1",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J02",
+      "category": "J",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J03",
+      "category": "J",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J04",
+      "category": "J",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "j4",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J05",
+      "category": "J",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "j5",
+          "quote": "EMD: INR 50,000.\n\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": [],
+          "cosmetic_span_padding": true
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "J06",
+      "category": "J",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K01",
+      "category": "K",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K02",
+      "category": "K",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 50,000.",
+          "normalized_value": 50000,
+          "currency": "INR",
+          "document_id": "k2",
+          "quote": "EMD: INR 50,000.\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K03",
+      "category": "K",
+      "gold_field": "quantity",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K04",
+      "category": "K",
+      "gold_field": "eligibility",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K05",
+      "category": "K",
+      "gold_field": "turnover",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "K06",
+      "category": "K",
+      "gold_field": "emd",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": true,
+      "target_correct": true,
+      "outputs": [
+        {
+          "field": "emd",
+          "channel": "requirements",
+          "raw_value": "INR 75,000.",
+          "normalized_value": 75000,
+          "currency": "INR",
+          "document_id": "k6b",
+          "quote": "EMD: INR 75,000.\n",
+          "value_status": "CORRECT",
+          "source_status": "CORRECT",
+          "status": "CORRECT",
+          "reasons": []
+        }
+      ],
+      "emitted_counts": {
+        "CORRECT": 1,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 1,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L01",
+      "category": "L",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L02",
+      "category": "L",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L03",
+      "category": "L",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L04",
+      "category": "L",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L05",
+      "category": "L",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "L06",
+      "category": "L",
+      "gold_field": "total_price",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "R01",
+      "category": "R",
+      "gold_field": "deadline",
+      "has_explicit_gold": true,
+      "extractor_surface_eligible": true,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    },
+    {
+      "case_id": "R02",
+      "category": "R",
+      "gold_field": null,
+      "has_explicit_gold": false,
+      "extractor_surface_eligible": false,
+      "target_emitted": false,
+      "target_correct": false,
+      "outputs": [],
+      "emitted_counts": {
+        "CORRECT": 0,
+        "WRONG": 0,
+        "UNSCORABLE": 0
+      },
+      "generated_changes": 0,
+      "draft_deadline": {
+        "value": "2026-10-09T06:30:00.000Z",
+        "is_ingestion_time_fallback": true,
+        "classification": "UNGROUNDED_PLACEHOLDER",
+        "explanation": "No deadline was extracted; the returned draft uses ingestion time as its current submission deadline. This is not counted as an extracted fact."
+      }
+    }
+  ]
+}

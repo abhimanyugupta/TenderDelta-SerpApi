@@ -94,7 +94,7 @@ export const ExecutiveSummaryView: React.FC<ExecutiveSummaryViewProps> = ({
 
   const handleCopyMarkdown = () => {
     if (!summaryData) return;
-    const text = `# TENDER CHANGE BRIEF (CONFIDENTIAL BID INTELLIGENCE)
+    const text = `# TENDER CHANGE BRIEF (HUMAN REVIEW COPY)
 Tender: ${tender.title}
 Reference: ${tender.referenceNumber}
 Organization: ${tender.organization}
@@ -178,7 +178,7 @@ ${summaryData.mandatoryActionsSummary?.map((t: string) => `- [ ] ${t}`).join('\n
         <div className="border-b-2 border-stone-900 pb-6 space-y-3">
           <div className="flex items-center justify-between text-xs font-mono text-stone-500">
             <span>TENDERDELTA INTELLIGENCE BRIEF</span>
-            <span>CONFIDENTIAL • BID COMMITTEE ONLY</span>
+            <span>HUMAN REVIEW REQUIRED • VERIFY OFFICIAL SOURCES</span>
           </div>
 
           <h1 className="text-2xl font-bold text-stone-900 font-serif leading-tight">

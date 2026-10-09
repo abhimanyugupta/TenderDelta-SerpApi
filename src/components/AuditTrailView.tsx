@@ -38,52 +38,52 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tender }) => {
     {
       id: 'audit-01',
       timestamp: '2026-08-10 16:45:12 IST',
-      user: 'P. Sharma (Finance Lead)',
+      user: 'Finance reviewer',
       role: 'FINANCE',
       action: 'CHANGE_CONFIRMED',
       details: 'Confirmed 50% Turnover increase (₹10 Cr to ₹15 Cr). Instructed accounting team to issue fresh UDIN certificate.',
       clauseRef: 'NIT Sec 3.1 & Corrigendum 2',
-      logSignature: 'AUDIT-SIG-884C'
+      logSignature: 'DEMO-LOG-884C'
     },
     {
       id: 'audit-02',
       timestamp: '2026-08-10 17:15:30 IST',
-      user: 'Dr. Vikram Sen (HPC Architect)',
+      user: 'Technical reviewer',
       role: 'TECHNICAL',
       action: 'TASK_ASSIGNED',
       details: 'Allocated BoM review task: Server RAM doubled to 1024GB DDR5 ECC memory.',
       clauseRef: 'Schedule A Item 1.01',
-      logSignature: 'AUDIT-SIG-0471'
+      logSignature: 'DEMO-LOG-0471'
     },
     {
       id: 'audit-03',
       timestamp: '2026-08-10 18:02:44 IST',
-      user: 'Pooja Iyer (Legal & Contracts)',
+      user: 'Legal reviewer',
       role: 'LEGAL_COMPLIANCE',
       action: 'CHANGE_CONFIRMED',
       details: 'Verified relaxation of OEM operating presence in India from 7 continuous years to 5 years per Pre-Bid Query #12.',
       clauseRef: 'Sec 4.8 / Query #12',
-      logSignature: 'AUDIT-SIG-1FC6'
+      logSignature: 'DEMO-LOG-1FC6'
     },
     {
       id: 'audit-04',
       timestamp: '2026-08-11 09:30:15 IST',
-      user: 'Rajesh Sharma (Bid Director)',
+      user: 'Bid manager',
       role: 'BID_MANAGER',
       action: 'DOCUMENT_INGESTED',
       details: 'Ingested and parsed "Revised_Financial_BOQ_v2.xlsx" (3 line items updated).',
       clauseRef: 'Revised_Financial_BOQ_v2.xlsx',
-      logSignature: 'AUDIT-SIG-942B'
+      logSignature: 'DEMO-LOG-942B'
     },
     {
       id: 'audit-05',
       timestamp: '2026-08-11 11:20:00 IST',
-      user: 'Rajesh Sharma (Bid Director)',
+      user: 'Bid manager',
       role: 'BID_MANAGER',
       action: 'BRIEF_EXPORTED',
       details: 'Generated formal 10-Section Executive Tender Change Brief for Steering Committee approval.',
       clauseRef: 'Tender Docket v5.0',
-      logSignature: 'AUDIT-SIG-2B73'
+      logSignature: 'DEMO-LOG-2B73'
     }
   ]);
 
@@ -115,7 +115,7 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tender }) => {
           <div>
             <div className="flex items-center space-x-2">
               <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-purple-50 text-purple-800 border border-purple-200">
-                AUDIT TRAIL [SAMPLE LOG]
+                ILLUSTRATIVE AUDIT EVENTS · SAMPLE DATA
               </span>
               <span className="text-xs text-stone-500 font-mono">
                 Human Review & Decision History
@@ -125,7 +125,7 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tender }) => {
               Reviewer Decision & Verification Audit Trail
             </h1>
             <p className="text-xs text-stone-600 max-w-3xl mt-0.5">
-              Logs human reviews, clause confirmations, task assignments, and brief exports to maintain organizational transparency and pre-bid audit readiness.
+              These preloaded example events illustrate a possible review workflow. This prototype does not provide verified user attribution, immutable records, or an auditable compliance history.
             </p>
           </div>
 
@@ -168,7 +168,7 @@ export const AuditTrailView: React.FC<AuditTrailViewProps> = ({ tender }) => {
               Recorded Review Decisions ({filteredLogs.length})
             </h3>
           </div>
-          <span className="text-xs font-mono text-stone-500">[In-Memory Session Trail]</span>
+              <span className="text-xs font-mono text-stone-500">[SAMPLE · NOT PERSISTENT]</span>
         </div>
 
         <div className="divide-y divide-stone-200">

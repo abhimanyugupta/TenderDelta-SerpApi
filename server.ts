@@ -15,7 +15,7 @@ import { toTenderDiscoveryResponse } from './src/utils/serpApiDiscovery';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json({ limit: '25mb' }));
 
@@ -119,7 +119,7 @@ app.post('/api/serpapi/discover-tenders', async (req, res) => {
     const response = await fetch(`https://serpapi.com/search.json?${params.toString()}`);
     const data = await response.json();
 
-    if (!response.ok) {
+    if (!response.ok || data?.error) {
       return res.status(502).json({
         error: 'SerpApi request failed.',
         code: 'SERPAPI_PROVIDER_FAILURE',
@@ -131,7 +131,8 @@ app.post('/api/serpapi/discover-tenders', async (req, res) => {
 
     return res.json(toTenderDiscoveryResponse(query, data, 'SERPAPI'));
   } catch (error: any) {
-    console.error('SerpApi discovery provider failure:', error?.message || error);
+    // Provider errors can contain the credential-bearing request URL.
+    console.error('SerpApi discovery provider failure.');
     return res.status(502).json({
       error: 'SerpApi discovery provider failure.',
       code: 'SERPAPI_PROVIDER_FAILURE',
@@ -519,7 +520,7 @@ Provide a structured, authoritative answer with grounded citations. If page numb
 
     let isGroundedInTender = allVerified && !anyFailed && !isNegativeClaim;
     let confidence = isGroundedInTender ? (parsed.confidence || 'HIGH') : 'LOW';
-    const verificationStatus = isGroundedInTender ? 'VERIFIED' : (isNegativeClaim ? 'INSUFFICIENT_EVIDENCE' : (anyFailed ? 'FAILED_VALIDATION' : 'UNVERIFIED'));
+    const verificationStatus = isGroundedInTender ? 'UNVERIFIED' : (isNegativeClaim ? 'INSUFFICIENT_EVIDENCE' : (anyFailed ? 'FAILED_VALIDATION' : 'UNVERIFIED'));
 
     if (isNegativeClaim) {
       isGroundedInTender = false;
@@ -534,7 +535,10 @@ Provide a structured, authoritative answer with grounded citations. If page numb
       confidence,
       verificationStatus,
       citations: validatedCitations,
-      groundedInTender: isGroundedInTender,
+      groundedInTender: false,
+      citationVerificationStatus: allVerified && !anyFailed ? 'VERIFIED' : 'UNVERIFIED',
+      requiresHumanReview: true,
+      warning: 'Citations verify quoted source text only. AI answer interpretation requires human review.',
       retrievalCoverage: boundedContext.coverage,
       hasUnverifiedCitations: anyFailed,
       insufficientEvidence: isNegativeClaim || !isGroundedInTender
@@ -568,95 +572,12 @@ app.post('/api/gemini/analyze-tender', async (req, res) => {
     ).join('\n\n');
 
     if (!ai) {
-      // Deterministic rule-based extraction from the actual provided text
-      const changes: any[] = [];
-      const deadlines: any[] = [];
-
-      // Check for date extensions in text
-      const dateExtRegex = /(?:extended|postponed|rescheduled)\s+(?:from\s+)?(\d{1,2}[\s\-/.][A-Za-z0-9]{3,9}[\s\-/.](?:20\d{2}))\s+(?:to|till|upto)\s+(\d{1,2}[\s\-/.][A-Za-z0-9]{3,9}[\s\-/.](?:20\d{2}))/i;
-      const dateMatch = dateExtRegex.exec(docsSummaryText);
-      if (dateMatch) {
-        changes.push({
-          id: `chg-${Date.now()}-dl`,
-          category: 'DEADLINE',
-          changeType: 'DEADLINE_CHANGED',
-          materiality: 'HIGH',
-          confidence: 'HIGH',
-          confidenceReason: 'Date extension clause extracted directly from text.',
-          title: `Bid Submission Deadline Extended from ${dateMatch[1]} to ${dateMatch[2]}`,
-          requirementKey: 'SUBMISSION_DEADLINE',
-          originalText: dateMatch[0],
-          updatedText: `Extended to ${dateMatch[2]}`,
-          beforeValue: dateMatch[1],
-          afterValue: dateMatch[2],
-          impactExplanation: `Submission closing date extended from ${dateMatch[1]} to ${dateMatch[2]}.`,
-          actionRequired: 'Ensure Bank Guarantee / EMD validity covers new closing date.',
-          sourceCitation: {
-            sourceDocumentId: (documents && documents[1]?.id) || 'doc-corr-1',
-            documentId: (documents && documents[1]?.id) || 'doc-corr-1',
-            documentName: (documents && (documents[1]?.name || documents[1]?.filename)) || 'Corrigendum',
-            pageNumber: 1,
-            pageOrNull: 1,
-            clauseTitle: 'Submission Deadline',
-            exactSnippet: dateMatch[0],
-            extractionMethod: 'DETERMINISTIC_RULES'
-          },
-          affectedDocuments: [(documents && (documents[1]?.name || documents[1]?.filename)) || 'Corrigendum'],
-          relevantRoles: ['BID_MANAGER'],
-          verificationStatus: 'UNREVIEWED'
-        });
-      }
-
-      // Check for turnover changes
-      const turnoverRegex = /(?:annual\s+(?:financial\s+)?turnover|turnover\s+of\s+at\s+least)\s*(?:inr|rs\.?|₹)?\s*([\d,.]+)\s*(crores?|cr|lakhs?|lacs?)/i;
-      const turnoverMatch = turnoverRegex.exec(docsSummaryText);
-      if (turnoverMatch) {
-        changes.push({
-          id: `chg-${Date.now()}-to`,
-          category: 'TURNOVER',
-          changeType: 'THRESHOLD_CHANGED',
-          materiality: 'CRITICAL',
-          confidence: 'HIGH',
-          confidenceReason: 'Turnover qualification extracted from text.',
-          title: `Annual Financial Turnover Threshold Specified as INR ${turnoverMatch[1]} ${turnoverMatch[2]}`,
-          requirementKey: 'FINANCIAL_TURNOVER',
-          originalText: turnoverMatch[0],
-          updatedText: turnoverMatch[0],
-          beforeValue: 'Baseline',
-          afterValue: `INR ${turnoverMatch[1]} ${turnoverMatch[2]}`,
-          impactExplanation: `Turnover requirement identified in tender documents. CA audited certificate required.`,
-          actionRequired: 'Submit CA certified balance sheets with valid UDIN.',
-          sourceCitation: {
-            sourceDocumentId: (documents && documents[0]?.id) || 'doc-orig-1',
-            documentId: (documents && documents[0]?.id) || 'doc-orig-1',
-            documentName: (documents && (documents[0]?.name || documents[0]?.filename)) || 'Tender Document',
-            pageNumber: 1,
-            pageOrNull: 1,
-            clauseTitle: 'Turnover Criteria',
-            exactSnippet: turnoverMatch[0],
-            extractionMethod: 'DETERMINISTIC_RULES'
-          },
-          affectedDocuments: [(documents && (documents[0]?.name || documents[0]?.filename)) || 'Tender Document'],
-          relevantRoles: ['FINANCE'],
-          verificationStatus: 'UNREVIEWED'
-        });
-      }
-
-      // Deterministically validate all extracted changes against ingested docs
-      const validatedChanges = changes.map(c => validateMaterialChange(c, docsList));
-      const confirmedChanges = validatedChanges.filter(c => c.verificationStatus === 'CONFIRMED');
-
-      const riskScore = confirmedChanges.some(c => c.materiality === 'CRITICAL') ? 'CRITICAL' : (confirmedChanges.length > 0 ? 'HIGH' : 'LOW');
-      const riskScoreReason = confirmedChanges.length > 0
-        ? `Identified ${confirmedChanges.length} verified material item(s) from document text.`
-        : 'No material changes or amendments identified in submitted text.';
-
       return res.json({
         success: true,
-        riskScore,
-        riskScoreReason,
-        changes: validatedChanges,
-        deadlines
+        engine: 'LOCAL_DETERMINISTIC',
+        changes: [],
+        deadlines: [],
+        warning: 'AI enrichment is disabled. Use the browser deterministic document analysis.',
       });
     }
 
@@ -887,6 +808,7 @@ ${JSON.stringify(tender.changes?.slice(0, 10) || [], null, 2)}`,
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
+      configLoader: 'runner',
       server: { middlewareMode: true },
       appType: 'spa',
     });
@@ -899,8 +821,9 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`TenderDelta server running on http://0.0.0.0:${PORT}`);
+  const host = process.env.HOST || '127.0.0.1';
+  app.listen(PORT, host, () => {
+    console.log(`TenderDelta server running on http://${host}:${PORT}`);
   });
 }
 

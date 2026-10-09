@@ -69,13 +69,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-blue-50 text-blue-800 border border-blue-200">
               AUDIT TRAIL ACTIVE
             </span>
-            <span className="text-xs text-stone-500 font-mono">GFR 2017 & CVC Compliance Guard</span>
+            <span className="text-xs text-stone-500 font-mono">Procurement reference notes • verify current sources</span>
           </div>
           <h1 className="text-xl font-bold text-stone-900 mt-1 font-sans tracking-tight">
             Procurement Change Intelligence Portfolio
           </h1>
           <p className="text-xs text-stone-600 max-w-2xl mt-0.5">
-            Real-time multi-version diffing across Original NITs, Corrigenda, Pre-bid clarifications, and Revised BOQs for Indian Government & PSU Tenders.
+            Compare uploaded Original NITs, Corrigenda, Pre-bid clarifications, and Revised BOQs. The preloaded example is synthetic demonstration data.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span className="text-2xl font-bold text-stone-900 font-mono tabular-nums">{totalActiveTenders}</span>
             <span className="text-[11px] text-stone-500 font-mono">Tracked</span>
           </div>
-          <p className="text-[11px] text-stone-500 mt-1">Under continuous corrigenda watch</p>
+          <p className="text-[11px] text-stone-500 mt-1">Locally stored workspaces</p>
         </div>
 
         <div className="bg-white border border-stone-200 rounded-lg p-4 shadow-xs border-l-4 border-l-red-500">
@@ -270,7 +270,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
                     <div className="text-xs text-stone-500 flex items-center space-x-2">
                       <span className="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
-                      <span>5 Document Versions Ingested & Verified</span>
+                      <span>{tender.documents.length} Document Versions • Review source quotations</span>
                     </div>
 
                     <div className="flex items-center space-x-2">

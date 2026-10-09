@@ -804,18 +804,24 @@ export function retrieveBoundedSourceContext(
   const budget = options.characterBudget || 18000;
   let accumulatedChars = 0;
   let retrievedTextChars = 0;
-  let totalDocChars = 0;
-  let totalSectionsCount = 0;
+  const sourceText = (doc: TenderDocument) => doc.extractedText || (doc.pages ? doc.pages.map(p => p.text).join('\n') : '');
+  const totalDocChars = documents.reduce((sum, doc) => sum + sourceText(doc).length, 0);
+  const totalSectionsCount = documents.reduce((sum, doc) => sum + Math.max(doc.sections?.length || doc.pages?.length || 0, 1), 0);
   let retrievedSectionsCount = 0;
   let truncatedSectionsCount = 0;
 
   const parts: string[] = [];
 
   for (const doc of documents) {
-    const docFullText = doc.extractedText || (doc.pages ? doc.pages.map(p => p.text).join('\n') : '');
-    totalDocChars += docFullText.length;
+    const docFullText = sourceText(doc);
+    const coveredSpans: Array<[number, number]> = [];
+    const recordSourceSlice = (slice: string) => {
+      // Count source characters, never wrapper/limit-marker characters or duplicate excerpts.
+      if (!slice) return;
+      const start = docFullText.indexOf(slice);
+      if (start >= 0) coveredSpans.push([start, start + slice.length]);
+    };
     const docSections = doc.sections || [];
-    totalSectionsCount += Math.max(docSections.length, 1);
 
     const docHeader = `<untrusted_tender_document id="${doc.id}" version="${doc.versionLabel || 'v1.0'}" filename="${doc.filename || doc.name}" type="${doc.type}">`;
     const docFooter = `</untrusted_tender_document>`;
@@ -842,7 +848,7 @@ export function retrieveBoundedSourceContext(
         if (willTruncate) truncatedSectionsCount++;
         retrievedSectionsCount++;
 
-        retrievedTextChars += slice.length;
+        recordSourceSlice(sec.content.substring(0, maxContentLen));
         accumulatedChars += slice.length + overhead;
         docBodyParts.push(`${secHeader}\n${slice}\n${secFooter}`);
 
@@ -867,7 +873,7 @@ export function retrieveBoundedSourceContext(
         if (willTruncate) truncatedSectionsCount++;
         retrievedSectionsCount++;
 
-        retrievedTextChars += slice.length;
+        recordSourceSlice(page.text.substring(0, maxContentLen));
         accumulatedChars += slice.length + overhead;
         docBodyParts.push(`${pHeader}\n${slice}\n${pFooter}`);
 
@@ -881,28 +887,34 @@ export function retrieveBoundedSourceContext(
 
       retrievedSectionsCount++;
       if (willTruncate) truncatedSectionsCount++;
-      retrievedTextChars += slice.length;
+      recordSourceSlice(docFullText.substring(0, Math.max(0, remainingBudget)));
       accumulatedChars += slice.length;
       docBodyParts.push(slice);
     }
 
+    coveredSpans.sort((a, b) => a[0] - b[0]);
+    let coveredEnd = 0;
+    for (const [start, end] of coveredSpans) {
+      retrievedTextChars += Math.max(0, end - Math.max(start, coveredEnd));
+      coveredEnd = Math.max(coveredEnd, end);
+    }
     parts.push(`${docHeader}\n${docBodyParts.join('\n')}\n${docFooter}`);
     if (accumulatedChars >= budget) break;
   }
 
-  let coveragePercent = totalDocChars > 0 ? Number(Math.min(100, (retrievedTextChars / totalDocChars) * 100).toFixed(1)) : 100;
+  let coveragePercent = totalDocChars > 0 ? Number(Math.min(100, (retrievedTextChars / totalDocChars) * 100).toFixed(1)) : 0;
   if (truncatedSectionsCount > 0 && coveragePercent >= 100) {
     coveragePercent = Math.min(95.0, Number(((retrievedSectionsCount - truncatedSectionsCount) / Math.max(1, retrievedSectionsCount) * 100).toFixed(1)));
   }
 
   const coverage: RetrievalCoverage = {
     totalDocumentCharacters: totalDocChars,
-    retrievedCharacters: accumulatedChars,
+    retrievedCharacters: retrievedTextChars,
     coveragePercent,
     totalSections: totalSectionsCount,
     retrievedSections: retrievedSectionsCount,
     truncatedSections: truncatedSectionsCount,
-    isFullyCovered: coveragePercent >= 99.5 && truncatedSectionsCount === 0,
+    isFullyCovered: totalDocChars > 0 && retrievedTextChars === totalDocChars && truncatedSectionsCount === 0,
     retrievalStrategy: 'SECTION_AWARE_BOUNDED'
   };
 

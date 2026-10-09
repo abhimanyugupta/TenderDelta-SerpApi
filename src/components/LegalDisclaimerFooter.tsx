@@ -41,7 +41,7 @@ export const LegalDisclaimerFooter: React.FC<LegalDisclaimerFooterProps> = ({
                 onClick={onOpenMethodology}
                 className="text-stone-600 hover:text-stone-900 transition-colors underline"
               >
-                GFR 2017 & CVC Rubric
+                Procurement reference notes
               </button>
             )}
 
@@ -54,7 +54,7 @@ export const LegalDisclaimerFooter: React.FC<LegalDisclaimerFooterProps> = ({
               </button>
             )}
 
-            <span className="text-stone-400">AES-256 Protected</span>
+            <span className="text-stone-400">Local prototype • Review source documents</span>
           </div>
         </div>
 

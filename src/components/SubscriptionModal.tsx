@@ -235,13 +235,13 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
             ))}
           </div>
 
-          {/* Privacy & Guarantees */}
+          {/* Prototype boundary */}
           <div className="bg-stone-50 border border-stone-200 rounded-lg p-4 text-xs font-sans text-stone-600 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center space-x-2">
               <ShieldCheck className="w-4 h-4 text-stone-600 flex-shrink-0" />
-              <span>All plans include strict client document confidentiality, zero LLM training on bid documents, and Indian data sovereignty.</span>
+              <span>Prototype only: these plan cards describe intended capabilities. Billing, contractual confidentiality, regional storage, and provider data terms are not configured here.</span>
             </div>
-            <span className="font-mono text-[11px] text-stone-500 whitespace-nowrap">[DEMO ARCHITECTURE]</span>
+            <span className="font-mono text-[11px] text-stone-500 whitespace-nowrap">[NOT A SERVICE OFFER]</span>
           </div>
 
         </div>

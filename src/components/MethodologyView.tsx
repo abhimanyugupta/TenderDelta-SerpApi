@@ -48,15 +48,15 @@ export const MethodologyView: React.FC = () => {
       <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-xs">
         <div className="flex items-center space-x-2">
           <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-stone-100 text-stone-800 border border-stone-200">
-            PROVENANCE & AUDIT ENGINE
+            PROVENANCE CHECKS
           </span>
-          <span className="text-xs text-stone-500 font-mono">GFR 2017 • CVC Guidelines • Deterministic Verification</span>
+          <span className="text-xs text-stone-500 font-mono">Illustrative references • selected source checks</span>
         </div>
         <h1 className="text-xl font-bold text-stone-900 mt-1 font-sans">
-          Fail-Closed Provenance Pipeline & Adversarial Evidence Benchmark
+          Selected Provenance Checks & Adversarial Evidence Benchmark
         </h1>
         <p className="text-xs text-stone-600 max-w-3xl mt-0.5">
-          Deterministic citation verification, anti-spoofing identity resolution, and comprehensive mutation benchmarking for Indian Government & PSU tenders.
+          Some supported workflows check citation text and source identity. Coverage varies by field and document; these checks do not certify correctness, completeness, or legal compliance. The 20-case results are fixture observations, not product-wide reliability estimates.
         </p>
 
         {/* Navigation Tabs */}
@@ -94,7 +94,7 @@ export const MethodologyView: React.FC = () => {
             }`}
           >
             <BookOpen className="w-3.5 h-3.5 text-amber-500" />
-            <span>Regulatory Taxonomy & GFR Rules</span>
+            <span>Procurement References</span>
           </button>
         </div>
       </div>
@@ -112,7 +112,7 @@ export const MethodologyView: React.FC = () => {
                     Adversarial Evidence Mutation Benchmark
                   </h2>
                   <p className="text-xs text-stone-500 font-mono">
-                    20 Ground-Truth & Mutated Cases • Primary Trust Metric: False Accept Rate (FAR = 0.00%)
+                    20-case deterministic fixture set • Run to view current results
                   </p>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export const MethodologyView: React.FC = () => {
                       </span>
                       <span className="text-[10px] text-stone-400 font-mono">({benchmarkReport.falseAcceptCount}/{benchmarkReport.invalidCasesCount})</span>
                     </div>
-                    <p className="text-[10px] text-stone-400 mt-0.5">Primary trust metric (target 0%)</p>
+                    <p className="text-[10px] text-stone-400 mt-0.5">Observed among invalid fixtures</p>
                   </div>
 
                   <div className="p-3.5 bg-stone-900 text-stone-100 rounded-lg border border-stone-800">
@@ -149,7 +149,7 @@ export const MethodologyView: React.FC = () => {
                       </span>
                       <span className="text-[10px] text-stone-400 font-mono">({benchmarkReport.falseRejectCount}/{benchmarkReport.validCasesCount})</span>
                     </div>
-                    <p className="text-[10px] text-stone-400 mt-0.5">Valid evidence rejected (target 0%)</p>
+                    <p className="text-[10px] text-stone-400 mt-0.5">Observed among valid fixtures</p>
                   </div>
 
                   <div className="p-3.5 bg-stone-900 text-stone-100 rounded-lg border border-stone-800">
@@ -160,7 +160,7 @@ export const MethodologyView: React.FC = () => {
                       </span>
                       <span className="text-[10px] text-stone-400 font-mono">({benchmarkReport.validAcceptCount}/{benchmarkReport.validCasesCount})</span>
                     </div>
-                    <p className="text-[10px] text-stone-400 mt-0.5">Authentic grounded evidence</p>
+                    <p className="text-[10px] text-stone-400 mt-0.5">Supported fixtures accepted</p>
                   </div>
 
                   <div className="p-3.5 bg-stone-900 text-stone-100 rounded-lg border border-stone-800">
@@ -170,7 +170,7 @@ export const MethodologyView: React.FC = () => {
                         {benchmarkReport.claimCitationCoveragePercent.toFixed(1)}%
                       </span>
                     </div>
-                    <p className="text-[10px] text-stone-400 mt-0.5">Enforced per material fact</p>
+                    <p className="text-[10px] text-stone-400 mt-0.5">Required spans covered in this set</p>
                   </div>
                 </div>
 
@@ -184,7 +184,9 @@ export const MethodologyView: React.FC = () => {
                       </span>
                     </div>
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
-                      ALL KILLER CASES PASSED DETERMINISTICALLY
+                      {benchmarkReport.allKillerCasesPassed
+                        ? 'All named killer fixtures matched expected outcomes'
+                        : 'Named killer fixture failures detected'}
                     </span>
                   </div>
 
@@ -394,9 +396,13 @@ export const MethodologyView: React.FC = () => {
             <div className="flex items-center space-x-2 border-b border-stone-200 pb-3">
               <BookOpen className="w-5 h-5 text-indigo-600" />
               <h2 className="text-sm font-bold text-stone-900 uppercase font-mono tracking-wider">
-                Indian Statutory Procurement Framework
+                Selected Procurement Reference Notes
               </h2>
             </div>
+
+            <p className="text-xs text-stone-600 leading-relaxed">
+              These manually curated notes are illustrative, not a current legal authority or tender-specific compliance determination. Verify each point against the applicable official instrument and tender documents. This prototype does not decide eligibility or bid responsiveness.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {INDIAN_PROCUREMENT_RULES.map((rule) => (
@@ -427,17 +433,17 @@ export const MethodologyView: React.FC = () => {
             <div className="flex items-center space-x-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               <h3 className="text-sm font-bold font-mono uppercase tracking-wider text-white">
-                Hallucination Defense & Deterministic Isolation
+                Evidence Checks & Known Limits
               </h3>
             </div>
             <p className="text-stone-300 leading-relaxed max-w-3xl">
-              TENDERDELTA enforces an absolute architectural separation between LLM extraction and deterministic calculation:
+              TenderDelta uses deterministic helpers for selected calculations and source checks. Extraction and retrieval can miss material evidence, and coverage varies by field and workflow.
             </p>
             <ul className="space-y-1.5 list-disc list-inside text-stone-400 font-mono text-[11px]">
-              <li><strong>No LLM arithmetic:</strong> Date additions (+7 days) and currency sums are computed by standard deterministic algorithms.</li>
-              <li><strong>Mandatory Citations:</strong> Every assertion must resolve to an exact page number and verbatim clause excerpt.</li>
-              <li><strong>Negative Proof:</strong> If an item is unmentioned across uploaded dockets, the engine explicitly outputs "NOT FOUND IN PROVIDED DOCUMENTS".</li>
-              <li><strong>Conflict Detection:</strong> Contradictions between clauses trigger an immediate "CONFLICT DETECTED" record with dual-source citations.</li>
+              <li><strong>Selected calculations:</strong> Supported date offsets and totals use deterministic code; review units, inputs, and tender-specific assumptions.</li>
+              <li><strong>Citation checks:</strong> Some supported workflows validate quoted source text and identity. Review both the source and cited passage before relying on a result.</li>
+              <li><strong>Absence claims:</strong> "Not found" describes the indexed material, not the complete procurement record. Missing or unreadable pages may contain relevant terms.</li>
+              <li><strong>Conflicts:</strong> Detected contradictions can be surfaced with source statements; extraction or retrieval gaps can leave conflicts undiscovered.</li>
             </ul>
           </div>
         </div>

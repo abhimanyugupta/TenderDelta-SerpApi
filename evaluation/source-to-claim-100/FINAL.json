@@ -1,0 +1,3279 @@
+{
+  "study": "TenderDelta structured proposed-claim validation; not a live LLM or entire-app reliability estimate",
+  "dataset_version": "1.0.0",
+  "dataset_sha256": "462b64a4f0185dc31b37fc66cffb41e0d38b4e016befef5c713622a2bd8b13c8",
+  "baseline_commit": "709504c514be1628e890697c175a0397d13bccf6",
+  "phase": "final",
+  "summary": {
+    "total": 100,
+    "passed": 93,
+    "metrics": {
+      "claimAccuracy": {
+        "numerator": 19,
+        "denominator": 19,
+        "rate": 1
+      },
+      "evidenceSupportAccuracy": {
+        "numerator": 19,
+        "denominator": 19,
+        "rate": 1
+      },
+      "citationCorrectness": {
+        "numerator": 23,
+        "denominator": 23,
+        "rate": 1
+      },
+      "citationCompleteness": {
+        "numerator": 23,
+        "denominator": 26,
+        "rate": 0.8846153846153846
+      },
+      "unsupportedClaimRate": {
+        "numerator": 0,
+        "denominator": 19,
+        "rate": 0
+      },
+      "wrongSourceRate": {
+        "numerator": 0,
+        "denominator": 19,
+        "rate": 0
+      },
+      "provenanceViolationRate": {
+        "numerator": 0,
+        "denominator": 19,
+        "rate": 0
+      },
+      "correctAbstentionRate": {
+        "numerator": 69,
+        "denominator": 74,
+        "rate": 0.9324324324324325
+      },
+      "falseAbstentionRate": {
+        "numerator": 2,
+        "denominator": 21,
+        "rate": 0.09523809523809523
+      },
+      "conflictResolutionAccuracy": {
+        "numerator": 5,
+        "denominator": 5,
+        "rate": 1
+      },
+      "temporalUpdateAccuracy": {
+        "numerator": 17,
+        "denominator": 18,
+        "rate": 0.9444444444444444
+      },
+      "numericExtractionAccuracy": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1
+      }
+    },
+    "rawErrors": 7,
+    "errorCounts": {
+      "FALSE_ABSTENTION": 2,
+      "WRONG_BEHAVIOR": 7
+    },
+    "severityCounts": {
+      "S0": 0,
+      "S1": 0,
+      "S2": 7,
+      "S3": 0,
+      "S4": 0,
+      "S5": 0
+    },
+    "weightedErrors": 35,
+    "severityWeightedReliability": 0.9821882951653944,
+    "maximumSeverityObserved": "S2",
+    "releaseGate": "NO_S4_S5_OBSERVED",
+    "catastrophicFailures": [],
+    "categories": {
+      "A": {
+        "total": 10,
+        "passed": 10,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "B": {
+        "total": 10,
+        "passed": 8,
+        "errors": 2,
+        "weightedErrors": 10
+      },
+      "C": {
+        "total": 10,
+        "passed": 9,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "D": {
+        "total": 10,
+        "passed": 9,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "E": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "F": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "G": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "H": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "I": {
+        "total": 8,
+        "passed": 6,
+        "errors": 2,
+        "weightedErrors": 10
+      },
+      "J": {
+        "total": 6,
+        "passed": 6,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "K": {
+        "total": 6,
+        "passed": 6,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "L": {
+        "total": 6,
+        "passed": 5,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "R": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      }
+    }
+  },
+  "development": {
+    "total": 75,
+    "passed": 73,
+    "metrics": {
+      "claimAccuracy": {
+        "numerator": 17,
+        "denominator": 17,
+        "rate": 1
+      },
+      "evidenceSupportAccuracy": {
+        "numerator": 17,
+        "denominator": 17,
+        "rate": 1
+      },
+      "citationCorrectness": {
+        "numerator": 21,
+        "denominator": 21,
+        "rate": 1
+      },
+      "citationCompleteness": {
+        "numerator": 21,
+        "denominator": 22,
+        "rate": 0.9545454545454546
+      },
+      "unsupportedClaimRate": {
+        "numerator": 0,
+        "denominator": 17,
+        "rate": 0
+      },
+      "wrongSourceRate": {
+        "numerator": 0,
+        "denominator": 17,
+        "rate": 0
+      },
+      "provenanceViolationRate": {
+        "numerator": 0,
+        "denominator": 17,
+        "rate": 0
+      },
+      "correctAbstentionRate": {
+        "numerator": 52,
+        "denominator": 53,
+        "rate": 0.9811320754716981
+      },
+      "falseAbstentionRate": {
+        "numerator": 1,
+        "denominator": 18,
+        "rate": 0.05555555555555555
+      },
+      "conflictResolutionAccuracy": {
+        "numerator": 4,
+        "denominator": 4,
+        "rate": 1
+      },
+      "temporalUpdateAccuracy": {
+        "numerator": 13,
+        "denominator": 13,
+        "rate": 1
+      },
+      "numericExtractionAccuracy": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1
+      }
+    },
+    "rawErrors": 2,
+    "errorCounts": {
+      "FALSE_ABSTENTION": 1,
+      "WRONG_BEHAVIOR": 2
+    },
+    "severityCounts": {
+      "S0": 0,
+      "S1": 0,
+      "S2": 2,
+      "S3": 0,
+      "S4": 0,
+      "S5": 0
+    },
+    "weightedErrors": 10,
+    "severityWeightedReliability": 0.9930555555555556,
+    "maximumSeverityObserved": "S2",
+    "releaseGate": "NO_S4_S5_OBSERVED",
+    "catastrophicFailures": [],
+    "categories": {
+      "A": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "B": {
+        "total": 5,
+        "passed": 5,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "C": {
+        "total": 8,
+        "passed": 7,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "D": {
+        "total": 7,
+        "passed": 7,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "E": {
+        "total": 6,
+        "passed": 6,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "F": {
+        "total": 8,
+        "passed": 8,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "G": {
+        "total": 4,
+        "passed": 4,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "H": {
+        "total": 7,
+        "passed": 7,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "I": {
+        "total": 7,
+        "passed": 6,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "J": {
+        "total": 4,
+        "passed": 4,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "K": {
+        "total": 4,
+        "passed": 4,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "L": {
+        "total": 5,
+        "passed": 5,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "R": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "A01",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A02",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A03",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A04",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A05",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A06",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A07",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A08",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A09",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "A10",
+      "category": "A",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B01",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B02",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B03",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B04",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B05",
+      "category": "B",
+      "passed": false,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "B06",
+      "category": "B",
+      "passed": false,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "B07",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B08",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B09",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "B10",
+      "category": "B",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C01",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "CONFLICTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C02",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "CONFLICTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C03",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "deadline",
+          "value": "2026-10-20T17:00:00+05:30",
+          "tender_id": "TD-C03",
+          "timezone": "Asia/Kolkata"
+        },
+        "citations": [
+          {
+            "document_id": "C03-notice",
+            "quote": "Deadline: 2026-10-20 17:00 IST."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C04",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "CONFLICTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C05",
+      "category": "C",
+      "passed": false,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "C06",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "CONFLICTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C07",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "quantity",
+          "value": 10,
+          "tender_id": "TD-C07",
+          "unit": "pumps"
+        },
+        "citations": [
+          {
+            "document_id": "C07-notice",
+            "quote": "Quantity: 10 pumps."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C08",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C09",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "unit_price",
+          "value": 1250,
+          "tender_id": "TD-C09",
+          "currency": "INR",
+          "subject": "Valve"
+        },
+        "citations": [
+          {
+            "document_id": "C09-notice",
+            "quote": "Valve unit price: INR 1,250."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "C10",
+      "category": "C",
+      "passed": true,
+      "expected_behavior": "CONFLICTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D01",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D02",
+      "category": "D",
+      "passed": false,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "An additional citation is unrelated or superseded."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": true,
+      "errors": [
+        "FALSE_ABSTENTION",
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "D03",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D04",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "deadline",
+          "value": "2026-11-03T17:00:00+05:30",
+          "tender_id": "TD-D04",
+          "timezone": "Asia/Kolkata"
+        },
+        "citations": [
+          {
+            "document_id": "D04-v3",
+            "quote": "Deadline revised to 2026-11-03 17:00 IST."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D05",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D06",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "unit_price",
+          "value": 2000,
+          "tender_id": "TD-D06",
+          "currency": "INR",
+          "subject": "Filter"
+        },
+        "citations": [
+          {
+            "document_id": "D06-notice",
+            "quote": "Filter unit price: INR 2,000."
+          },
+          {
+            "document_id": "D06-corrigendum",
+            "quote": "Filter unit price and all other terms remain unchanged."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D07",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D08",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D09",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "D10",
+      "category": "D",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "The proposed citation does not establish the requested fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E01",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "deadline",
+          "value": "2026-10-20T17:00:00+05:30",
+          "tender_id": "TD-2026-101",
+          "timezone": "Asia/Kolkata"
+        },
+        "citations": [
+          {
+            "document_id": "e1",
+            "quote": "Deadline: 2026-10-20 17:00 IST."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E02",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E03",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E04",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E05",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E06",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "deadline",
+          "value": "2026-10-20T22:30:00+05:30",
+          "tender_id": "TD-2026-101",
+          "timezone": "Asia/Kolkata"
+        },
+        "citations": [
+          {
+            "document_id": "e6",
+            "quote": "Deadline: 2026-10-20 17:00 UTC."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E07",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "E08",
+      "category": "E",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F01",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F02",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "turnover",
+          "value": 12500000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "f2",
+            "quote": "Turnover: INR 1.25 crore per financial year."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F03",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F04",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "Currency conversion lacks an authoritative exchange rate."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F05",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "total_price",
+          "value": 30000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "f5",
+            "quote": "Quantity: 12 pumps. Unit price: INR 2,500 per pump. Total price: INR 30,000 excluding GST."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F06",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F07",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "F08",
+      "category": "F",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G01",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G02",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G03",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G04",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "organization",
+          "value": "River Basin Authority",
+          "tender_id": "TD-2026-101",
+          "organization": "River Basin Authority"
+        },
+        "citations": [
+          {
+            "document_id": "g4",
+            "quote": "Organization: River Basin Authority. Tender ID: TD-2026-101."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G05",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G06",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G07",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Proposed value, currency, unit or time disagrees with authoritative evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "G08",
+      "category": "G",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H01",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H02",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H03",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H04",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H05",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "emd",
+          "value": 0,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "h5",
+            "quote": "EMD: INR 0. No bid security is required."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H06",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H07",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "Evidence includes nonoperative or conditional terms requiring review."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "H08",
+      "category": "H",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I01",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I02",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "unit_price",
+          "value": 2500,
+          "tender_id": "TD-2026-101",
+          "currency": "INR",
+          "unit": "per pump",
+          "subject": "pump"
+        },
+        "citations": [
+          {
+            "document_id": "i2",
+            "quote": "Unit price: INR 2,500.\nItem | Quantity | Unit price\nPump | 10 | 2,500"
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I03",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I04",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I05",
+      "category": "I",
+      "passed": false,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": true,
+      "errors": [
+        "FALSE_ABSTENTION",
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "I06",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I07",
+      "category": "I",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "I08",
+      "category": "I",
+      "passed": false,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "CONFLICTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Current authoritative evidence contains unresolved field conflicts."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "J01",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "emd",
+          "value": 50000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "j1",
+            "quote": "EMD: INR 50,000."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "J02",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "J03",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "J04",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "J05",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "emd",
+          "value": 50000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "j5",
+            "quote": "EMD: INR 50,000."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "J06",
+      "category": "J",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K01",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Instruction-like document content cannot establish a procurement fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K02",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Instruction-like document content cannot establish a procurement fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K03",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "quantity",
+          "value": 10,
+          "tender_id": "TD-2026-101",
+          "unit": "pumps"
+        },
+        "citations": [
+          {
+            "document_id": "k3",
+            "quote": "Quantity: 10 pumps."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K04",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Instruction-like document content cannot establish a procurement fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K05",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "turnover",
+          "value": 1000000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR"
+        },
+        "citations": [
+          {
+            "document_id": "k5",
+            "quote": "Turnover: INR 1,000,000."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "K06",
+      "category": "K",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Instruction-like document content cannot establish a procurement fact."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "L01",
+      "category": "L",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "total_price",
+          "value": 30000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR",
+          "operation": {
+            "operator": "multiply",
+            "operands": [
+              {
+                "document_id": "l1b",
+                "field": "quantity",
+                "value": 12,
+                "unit": "pumps"
+              },
+              {
+                "document_id": "l1a",
+                "field": "unit_price",
+                "value": 2500,
+                "unit": "per pump"
+              }
+            ]
+          }
+        },
+        "citations": [
+          {
+            "document_id": "l1b",
+            "quote": "Quantity: 12 pumps. Unit price remains unchanged."
+          },
+          {
+            "document_id": "l1a",
+            "quote": "Unit price: INR 2,500 per pump. Unit prices exclude taxes."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "L02",
+      "category": "L",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Each arithmetic operand needs a current authoritative citation."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "L03",
+      "category": "L",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "total_price",
+          "value": 25000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR",
+          "operation": {
+            "operator": "multiply",
+            "operands": [
+              {
+                "document_id": "l3a",
+                "field": "quantity",
+                "value": 10,
+                "unit": "pumps"
+              },
+              {
+                "document_id": "l3b",
+                "field": "unit_price",
+                "value": 2500,
+                "unit": "per pump"
+              }
+            ]
+          }
+        },
+        "citations": [
+          {
+            "document_id": "l3a",
+            "quote": "Quantity: 10 pumps."
+          },
+          {
+            "document_id": "l3b",
+            "quote": "Unit price: INR 2,500 per pump. This signed pricing schedule belongs to TD-2026-101. Unit prices exclude taxes."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "L04",
+      "category": "L",
+      "passed": false,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Each arithmetic operand needs a current authoritative citation."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": false,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [
+        "WRONG_BEHAVIOR"
+      ],
+      "severity": "S2",
+      "weightedError": 5
+    },
+    {
+      "case_id": "L05",
+      "category": "L",
+      "passed": true,
+      "expected_behavior": "SUPPORTED",
+      "observation": {
+        "behavior": "SUPPORTED",
+        "claim": {
+          "field": "total_price",
+          "value": 50000,
+          "tender_id": "TD-2026-101",
+          "currency": "INR",
+          "operation": {
+            "operator": "sum",
+            "operands": [
+              {
+                "document_id": "l5a",
+                "field": "total_price",
+                "value": 20000
+              },
+              {
+                "document_id": "l5b",
+                "field": "total_price",
+                "value": 30000
+              }
+            ]
+          }
+        },
+        "citations": [
+          {
+            "document_id": "l5a",
+            "quote": "Total price: INR 20,000 for Lot A."
+          },
+          {
+            "document_id": "l5b",
+            "quote": "Total price: INR 30,000 for Lot B. Lots A and B together form TD-2026-101."
+          }
+        ],
+        "reason": "Structured fact and complete citations agree with current authoritative evidence."
+      },
+      "factualCorrect": true,
+      "citationCorrect": true,
+      "citationComplete": true,
+      "evidenceSupport": true,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": false,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "L06",
+      "category": "L",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Arithmetic units or item scope do not match."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "R01",
+      "category": "R",
+      "passed": true,
+      "expected_behavior": "UNSUPPORTED",
+      "observation": {
+        "behavior": "UNSUPPORTED",
+        "claim": null,
+        "citations": [],
+        "reason": "Citation lacks exact authoritative tender evidence."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    },
+    {
+      "case_id": "R02",
+      "category": "R",
+      "passed": true,
+      "expected_behavior": "ABSTAIN",
+      "observation": {
+        "behavior": "ABSTAIN",
+        "claim": null,
+        "citations": [],
+        "reason": "The requested fact is absent, ambiguous or outside the supported extraction grammar."
+      },
+      "factualCorrect": false,
+      "citationCorrect": false,
+      "citationComplete": false,
+      "evidenceSupport": false,
+      "behaviorCorrect": true,
+      "unsupportedClaim": false,
+      "wrongSource": false,
+      "provenanceViolation": false,
+      "correctAbstention": true,
+      "falseAbstention": false,
+      "errors": [],
+      "severity": "S0",
+      "weightedError": 0
+    }
+  ],
+  "source_lock": {
+    "baseline_commit": "709504c514be1628e890697c175a0397d13bccf6",
+    "newline_normalization": "CRLF to LF",
+    "sha256": {
+      "src/utils/evidenceValidator.ts": "08076dae5d642c44b58f83a3b7c64aa6f75c311bb14cc765c113abb2b3d13cf6",
+      "src/utils/analysisEngine.ts": "d63aa0c34bbdc66eadfdc1e6f3381cad0eff80319663ea16a208d3c72a4211ba",
+      "src/utils/dateParser.ts": "6ff2dc2b8041f25b3f247e7f477f72f3389e08f8137451b3b5c8676579c6bb13",
+      "src/utils/evidenceVerifier.ts": "1bf9082903a59ea6100db493b6ece0dd2beeb2bb81aa7c56a87977cb53be4a1d",
+      "src/utils/boqEngine.ts": "3c8317a16f725addb56ba6635a83ce538d460fa1ae7041e115a838202349aea0",
+      "src/utils/fileExtractor.ts": "703f5cb0e47877eaf68344bcf6a965fd718fbb80ae3e086557296fa9e329460b",
+      "src/types.ts": "391da842842c2065fb71b50f143cc41f47ddb97ebadb5724017d3e0076ef25ce"
+    }
+  },
+  "holdout": {
+    "total": 25,
+    "passed": 20,
+    "metrics": {
+      "claimAccuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1
+      },
+      "evidenceSupportAccuracy": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1
+      },
+      "citationCorrectness": {
+        "numerator": 2,
+        "denominator": 2,
+        "rate": 1
+      },
+      "citationCompleteness": {
+        "numerator": 2,
+        "denominator": 4,
+        "rate": 0.5
+      },
+      "unsupportedClaimRate": {
+        "numerator": 0,
+        "denominator": 2,
+        "rate": 0
+      },
+      "wrongSourceRate": {
+        "numerator": 0,
+        "denominator": 2,
+        "rate": 0
+      },
+      "provenanceViolationRate": {
+        "numerator": 0,
+        "denominator": 2,
+        "rate": 0
+      },
+      "correctAbstentionRate": {
+        "numerator": 17,
+        "denominator": 21,
+        "rate": 0.8095238095238095
+      },
+      "falseAbstentionRate": {
+        "numerator": 1,
+        "denominator": 3,
+        "rate": 0.3333333333333333
+      },
+      "conflictResolutionAccuracy": {
+        "numerator": 1,
+        "denominator": 1,
+        "rate": 1
+      },
+      "temporalUpdateAccuracy": {
+        "numerator": 4,
+        "denominator": 5,
+        "rate": 0.8
+      },
+      "numericExtractionAccuracy": {
+        "numerator": 0,
+        "denominator": 0,
+        "rate": null
+      }
+    },
+    "rawErrors": 5,
+    "errorCounts": {
+      "FALSE_ABSTENTION": 1,
+      "WRONG_BEHAVIOR": 5
+    },
+    "severityCounts": {
+      "S0": 0,
+      "S1": 0,
+      "S2": 5,
+      "S3": 0,
+      "S4": 0,
+      "S5": 0
+    },
+    "weightedErrors": 25,
+    "severityWeightedReliability": 0.9523809523809523,
+    "maximumSeverityObserved": "S2",
+    "releaseGate": "NO_S4_S5_OBSERVED",
+    "catastrophicFailures": [],
+    "categories": {
+      "A": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "B": {
+        "total": 5,
+        "passed": 3,
+        "errors": 2,
+        "weightedErrors": 10
+      },
+      "C": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "D": {
+        "total": 3,
+        "passed": 2,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "E": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "G": {
+        "total": 4,
+        "passed": 4,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "H": {
+        "total": 1,
+        "passed": 1,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "I": {
+        "total": 1,
+        "passed": 0,
+        "errors": 1,
+        "weightedErrors": 5
+      },
+      "J": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "K": {
+        "total": 2,
+        "passed": 2,
+        "errors": 0,
+        "weightedErrors": 0
+      },
+      "L": {
+        "total": 1,
+        "passed": 0,
+        "errors": 1,
+        "weightedErrors": 5
+      }
+    }
+  },
+  "policy_sha256": "94230653a75146c25f9e82d63c83a10a76762d97b4c3dc07eda2457e68d57d0d",
+  "scorer_sha256": "dc583dc58ec4115b7b1c44cdf7fc49d471f1d2e6619f00ddd05ca3ee2f652d0b"
+}

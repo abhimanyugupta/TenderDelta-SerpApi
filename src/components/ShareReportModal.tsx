@@ -26,14 +26,14 @@ export const ShareReportModal: React.FC<ShareReportModalProps> = ({
   onClose,
   tender
 }) => {
-  const [consultancyName, setConsultancyName] = useState('Apex Procurement Advisory LLP');
-  const [clientName, setClientName] = useState('Zenith Infotech Systems Ltd');
-  const [advisorName, setAdvisorName] = useState('S. R. Ramanathan, Principal Bid Lead');
+  const [consultancyName, setConsultancyName] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [advisorName, setAdvisorName] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
 
   if (!isOpen || !tender) return null;
 
-  const shareUrl = `https://tenderdelta.in/briefs/share/${tender.id}?demo_token=sample_export`;
+  const shareUrl = `https://example.invalid/briefs/share/${encodeURIComponent(tender.id)}`;
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
@@ -97,6 +97,7 @@ export const ShareReportModal: React.FC<ShareReportModalProps> = ({
                   type="text"
                   value={consultancyName}
                   onChange={(e) => setConsultancyName(e.target.value)}
+                  placeholder="Example advisory firm"
                   className="w-full px-3 py-1.5 border border-stone-300 rounded font-sans text-xs"
                 />
               </div>
@@ -107,6 +108,7 @@ export const ShareReportModal: React.FC<ShareReportModalProps> = ({
                   type="text"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
+                  placeholder="Example client organization"
                   className="w-full px-3 py-1.5 border border-stone-300 rounded font-sans text-xs"
                 />
               </div>
@@ -118,6 +120,7 @@ export const ShareReportModal: React.FC<ShareReportModalProps> = ({
                 type="text"
                 value={advisorName}
                 onChange={(e) => setAdvisorName(e.target.value)}
+                placeholder="Advisor name"
                 className="w-full px-3 py-1.5 border border-stone-300 rounded font-sans text-xs"
               />
             </div>

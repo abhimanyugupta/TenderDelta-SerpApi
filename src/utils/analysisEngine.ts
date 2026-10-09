@@ -12,6 +12,7 @@ import {
 } from '../types';
 import { parseProcurementDate, calculateDateShift } from './dateParser';
 import { verifyCitationGroundedness } from './evidenceVerifier';
+import { validateMaterialChange } from './evidenceValidator';
 import { compareBOQDatasets } from './boqEngine';
 import { StructuredBOQRow } from './fileExtractor';
 
@@ -758,10 +759,7 @@ export async function executeTenderAnalysis(
       tenderTitle: input.title,
       tenderOrg: input.organization,
       referenceNumber: input.referenceNumber,
-      documents: [
-        ...input.originalDocs.map(d => ({ name: d.filename, type: d.type, textSample: d.extractedText })),
-        ...input.corrigendaDocs.map(d => ({ name: d.filename, type: d.type, textSample: d.extractedText }))
-      ]
+      documents: localResult.draftTender.documents
     };
 
     const res = await fetch('/api/gemini/analyze-tender', {
@@ -775,46 +773,26 @@ export async function executeTenderAnalysis(
       if (data.changes && Array.isArray(data.changes) && data.changes.length > 0) {
         // Ground and verify every returned change against uploaded document text
         const verifiedChanges: MaterialChange[] = [];
-        const allDocText = input.originalDocs.map(d => d.extractedText || '').join('\n') + '\n' + input.corrigendaDocs.map(d => d.extractedText || '').join('\n');
-
         data.changes.forEach((chg: any, idx: number) => {
-          const snippet = chg.sourceCitation?.exactSnippet || chg.originalText || '';
-          const verify = verifyCitationGroundedness(snippet, allDocText);
-
-          // Only accept AI changes that are grounded in actual uploaded text
-          if (verify.isVerified || snippet.length < 15) {
-            verifiedChanges.push({
-              id: `chg-ai-${Date.now()}-${idx}`,
-              tenderId: localResult.draftTender.id,
-              category: chg.category || 'TECHNICAL',
-              changeType: chg.changeType || 'MODIFIED',
-              materiality: chg.materiality || 'MEDIUM',
-              confidence: (chg.confidence as any) || 'HIGH',
-              confidenceReason: chg.confidenceReason || 'AI extraction verified against document text corpus',
-              title: chg.title,
-              requirementKey: chg.requirementKey || `REQ_${idx}`,
-              originalText: chg.originalText || '',
-              updatedText: chg.updatedText || '',
-              beforeValue: chg.beforeValue,
-              afterValue: chg.afterValue,
-              impactExplanation: chg.impactExplanation,
-              actionRequired: chg.actionRequired,
-              sourceCitation: {
-                documentName: chg.sourceCitation?.documentName || input.corrigendaDocs[0]?.filename || 'Corrigendum',
-                pageNumber: verify.matchedPageNumber !== null ? verify.matchedPageNumber : (chg.sourceCitation?.pageNumber || null),
-                isPageNumberExact: verify.isPageNumberExact,
-                sectionNumber: chg.sourceCitation?.clauseTitle || 'Section',
-                exactSnippet: snippet,
-                isVerifiedAgainstSource: verify.isVerified,
-                matchConfidence: verify.confidence
-              },
-              affectedDocuments: [chg.sourceCitation?.documentName || 'Corrigendum'],
-              relevantRoles: ['BID_MANAGER', 'TECHNICAL'],
-              verificationStatus: 'UNREVIEWED',
-              factVsInterpretation: 'AI_INTERPRETATION',
-              provenance: 'AI_GENERATED'
-            });
-          }
+          // The server's rejection is sticky. Revalidate accepted citations against
+          // the exact uploaded document, never against a concatenated corpus.
+          if (chg.isQuarantined || chg.verificationStatus === 'REJECTED') return;
+          const validated = validateMaterialChange({
+            ...chg,
+            id: `chg-ai-${Date.now()}-${idx}`,
+            tenderId: localResult.draftTender.id,
+            requirementKey: chg.requirementKey || `REQ_${idx}`,
+            sourceCitation: chg.sourceCitation || {},
+            extractionMethod: 'GEMINI_EXTRACTION',
+            factVsInterpretation: 'AI_INTERPRETATION',
+            provenance: 'AI_GENERATED',
+            affectedDocuments: chg.affectedDocuments || [],
+            relevantRoles: chg.relevantRoles || ['BID_MANAGER'],
+          }, localResult.draftTender.documents);
+          if (validated.isQuarantined || !validated.isVerifiedAgainstSource) return;
+          // A verified quote establishes source identity, not semantic entailment.
+          // Preserve the interpretation label and require human review.
+          verifiedChanges.push({ ...validated, verificationStatus: 'UNREVIEWED' });
         });
 
         if (verifiedChanges.length > 0) {

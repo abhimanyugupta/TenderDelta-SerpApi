@@ -58,6 +58,8 @@ interface UploadedDocumentState {
   pages: DocumentPage[];
   sections: DocumentSection[];
   summary: string;
+  sha256Hash?: string;
+  boqRows?: ExtractedFileResult['boqRows'];
 }
 
 export const NewTenderModal: React.FC<NewTenderModalProps> = ({
@@ -174,6 +176,8 @@ export const NewTenderModal: React.FC<NewTenderModalProps> = ({
           extractedText: parsed.extractedText,
           pages: parsed.pages,
           sections: parsed.sections,
+          sha256Hash: parsed.sha256Hash,
+          boqRows: parsed.boqRows,
           summary: parsed.summary
         };
 
@@ -226,6 +230,7 @@ export const NewTenderModal: React.FC<NewTenderModalProps> = ({
         extractedText: d.extractedText,
         pages: d.pages,
         sections: d.sections,
+        sha256Hash: d.sha256Hash,
         summary: d.summary,
         lifecycleStatus: 'ANALYZED' as DocumentLifecycleStatus,
         provenance: 'USER_UPLOADED' as const
@@ -244,6 +249,7 @@ export const NewTenderModal: React.FC<NewTenderModalProps> = ({
         extractedText: d.extractedText,
         pages: d.pages,
         sections: d.sections,
+        sha256Hash: d.sha256Hash,
         summary: d.summary,
         lifecycleStatus: 'ANALYZED' as DocumentLifecycleStatus,
         provenance: 'USER_UPLOADED' as const
@@ -280,25 +286,19 @@ export const NewTenderModal: React.FC<NewTenderModalProps> = ({
     };
 
     try {
-      const pipelineResult = await executeTenderAnalysis(draftTender, (status, pct) => {
+      const pipelineResult = await executeTenderAnalysis({
+        title: draftTender.title, referenceNumber: draftTender.referenceNumber,
+        organization: draftTender.organization, portal: draftTender.portal,
+        estimatedValueInr, submissionDeadline, notes,
+        originalDocs, corrigendaDocs: subsequentDocs,
+      }, (status, pct) => {
         setAnalysisStatusText(status);
         setAnalysisProgress(pct);
       });
 
       setAnalysisResult({
         ...pipelineResult,
-        draftTender: {
-          ...draftTender,
-          changes: pipelineResult.changes,
-          requirements: pipelineResult.requirements,
-          boqChanges: pipelineResult.boqChanges,
-          conflicts: pipelineResult.conflicts,
-          deadlines: pipelineResult.deadlines,
-          tasks: pipelineResult.tasks,
-          riskScore: pipelineResult.riskScore,
-          riskScoreReason: pipelineResult.riskScoreReason,
-          auditTrail: pipelineResult.auditTrail
-        }
+        draftTender: pipelineResult.draftTender
       });
       setIsAnalyzing(false);
     } catch (e: any) {
@@ -686,7 +686,7 @@ Technical bid opening will take place on 01-Oct-2026.`,
                 ref={origFileInputRef}
                 type="file"
                 multiple
-                accept=".pdf,.docx,.xlsx,.xls,.csv,.txt"
+                accept=".pdf,.xlsx,.xls,.csv,.txt,.md"
                 className="hidden"
                 onChange={(e) => {
                   if (e.target.files) handleIngestRealFiles(e.target.files, false);
@@ -707,7 +707,7 @@ Technical bid opening will take place on 01-Oct-2026.`,
                   Click to select or drag & drop baseline RFP files
                 </p>
                 <p className="text-stone-500 text-[11px] mt-1 font-mono">
-                  Supported: PDF (with text extraction), Excel (.xlsx, .xls), CSV, Word (.docx), Plain Text
+                  Supported: plain text, Markdown, Excel and CSV. Basic uncompressed PDF text only; export scanned/compressed PDFs and Word documents as text.
                 </p>
               </div>
 
@@ -773,7 +773,7 @@ Technical bid opening will take place on 01-Oct-2026.`,
                 ref={subFileInputRef}
                 type="file"
                 multiple
-                accept=".pdf,.docx,.xlsx,.xls,.csv,.txt"
+                accept=".pdf,.xlsx,.xls,.csv,.txt,.md"
                 className="hidden"
                 onChange={(e) => {
                   if (e.target.files) handleIngestRealFiles(e.target.files, true);
@@ -907,28 +907,28 @@ Technical bid opening will take place on 01-Oct-2026.`,
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono">
                       <div className="bg-stone-900 p-3 rounded border border-stone-800">
                         <span className="text-xl font-bold text-red-400 block">
-                          {analysisResult?.changes?.length || 2}
+                          {analysisResult?.changes?.length ?? 0}
                         </span>
                         <span className="text-[11px] text-stone-400 uppercase">MATERIAL CHANGES</span>
                       </div>
 
                       <div className="bg-stone-900 p-3 rounded border border-stone-800">
                         <span className="text-xl font-bold text-amber-400 block">
-                          {analysisResult?.deadlines?.length || 1}
+                          {analysisResult?.deadlines?.length ?? 0}
                         </span>
                         <span className="text-[11px] text-stone-400 uppercase">DEADLINE CHANGES</span>
                       </div>
 
                       <div className="bg-stone-900 p-3 rounded border border-stone-800">
                         <span className="text-xl font-bold text-emerald-400 block">
-                          {analysisResult?.requirements?.length || 3}
+                          {analysisResult?.requirements?.length ?? 0}
                         </span>
                         <span className="text-[11px] text-stone-400 uppercase">REQUIREMENTS EXTRACTED</span>
                       </div>
 
                       <div className="bg-stone-900 p-3 rounded border border-stone-800">
                         <span className="text-xl font-bold text-blue-400 block">
-                          {analysisResult?.boqChanges?.length || 1}
+                          {analysisResult?.boqChanges?.length ?? 0}
                         </span>
                         <span className="text-[11px] text-stone-400 uppercase">BOQ ITEMS PARSED</span>
                       </div>
